@@ -1,0 +1,16 @@
+{% extends 'template.html'%}
+
+    {%block content%}
+    <center>
+     
+        {{events}}
+        <form method="post">
+            {%csrf_token%}
+            {{form.as_p}}
+            <button class="btn btn-success">Update</button>
+        </form>
+    </center>
+     
+    
+    
+    {%endblock content%}

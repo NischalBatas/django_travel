@@ -1,0 +1,27 @@
+{% extends 'template.html'%}
+
+    {%block content%}
+
+    <h2 style="text-align:center">All Venues</h2>
+    <div class="containers" style="display:flex; flex-wrap: wrap; justify-content: space-evenly;">
+
+    
+      <div class="card m-4" style="width: 22rem;">
+        <div class="card-body">
+        <ul>
+
+          <h5 class="card-title">Venue Name: {{venues.name}}</h5>
+          <li><p class="card-text">Venue: {{venues.address}}</p></li> 
+          <li><p class="card-text">Venue: {{venues.zip_code}}</p></li> 
+          <li><p class="card-text">Manager: {{venues.phone}}</p></li>
+          <li><p class="card-text">Address: {{venues.address}}</p></li>
+          <li><p class="card-text">Phone: {{venues.web}}</p></li>
+          <li><p class="card-text">Website: {{venues.email_address}}</p></li>
+           
+        </ul>
+        </div>
+      </div>
+
+    </div>
+    
+    {%endblock content%}

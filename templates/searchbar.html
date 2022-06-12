@@ -1,0 +1,36 @@
+{% extends 'template.html'%}
+
+{%block content%}
+    <center>
+        <h1>You searched for {{searched}}</h1>
+        <h2 style="text-align:center">All Venues</h2>
+        <div class="containers" style="display:flex; flex-wrap: wrap; justify-content: space-evenly;">
+            {%for venue in venues%}
+
+        
+          <div class="card m-4" style="width: 22rem;">
+            <div class="card-body">
+            <ul>
+    
+              <h5 class="card-title">Venue Name: {{venue.name}}</h5>
+              <li><p class="card-text">Venue: {{venue.address}}</p></li> 
+              <li><p class="card-text">Venue: {{venue.zip_code}}</p></li> 
+              <li><p class="card-text">Manager: {{venue.phone}}</p></li>
+              <li><p class="card-text">Address: {{venue.address}}</p></li>
+              <li><p class="card-text">Phone: {{venue.web}}</p></li>
+              <li><p class="card-text">Website: {{venue.email_address}}</p></li>
+               
+            </ul>
+            </div>
+          </div>
+          {%endfor%}
+
+        </div>
+        
+    </center>
+{%endblock content%}
+
+
+
+
+

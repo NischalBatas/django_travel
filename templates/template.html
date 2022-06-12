@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="../static/style.css">
+
+    <title>Document</title>
+    <style>
+  
+        .form-control{
+          display: flex;
+          width: 350px;
+          justify-content: space-evenly
+        }
+        .container{
+            display: flex;
+            /*border: 2px solid black;*/
+            height: 20vh;
+            /* flex-direction: column;*/
+            flex-direction:row-reverse; 
+            /*justify-content: space-evenly;*/
+            /* align-items: flex-end; */
+            /* flex-wrap: wrap; */
+            /* flex-wrap: wrap-reverse; */
+            /* flex-flow: column wrap; */
+        }
+        .item{
+           
+            background-color: brown;
+            border: 2px solid black;
+            width: 230px;
+            height: 320px;
+
+        }
+        tr th{
+            font-size: smaller;
+        }
+        th{
+            font-size: smaller;
+        }
+        td{
+            font-size: smaller;
+            padding: 8px;
+        }
+        footer {
+          text-align: center;
+          display: flex;
+          flex-direction:column;
+          justify-content: space-evenly; 
+          height: 10vh;
+          background-color: rgb(119, 26, 14);
+          color: white;
+          position: fixed;
+          bottom: 0;
+          width: 100%;
+          
+
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark ">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">Navbar</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="{% url 'index'%}">Home</a>
+              </li>
+              <!-- <li class="nav-item">
+                <a class="nav-link" href="{%url 'calendars' '2022' 'March'%}">March</a>
+              </li> -->
+              <li class="nav-item">
+                <a class="nav-link" href="{%url 'contact'%}">Contact Us</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{%url 'events'%}">Events</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{%url 'venues'%}">Venues</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{%url 'addvenue'%}">AddVenue</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{%url 'addevent'%}">AddEvent</a>
+              </li>
+              {%if user.is_authenticated%}
+              <li class="nav-item">
+                <a class="nav-link" href="{%url 'logout'%}">Logout</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link">Hello, {{user.first_name}}</a>
+              </li>
+              
+
+              {%else%}
+              <li class="nav-item">
+                <a class="nav-link" href="{%url 'logins'%}">Login</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{%url 'signup'%}">Signup</a>
+              </li>
+              {%endif%}
+
+             
+            </ul>
+            <form class="d-flex" role="search" method="post" action="{% url 'searchs'%}">
+              {%csrf_token%}
+              <input class="form-control me-2" name='searchs' type="search" placeholder="Search v" aria-label="Search">
+              <button class="btn btn-outline-success" type="submit">Search</button>
+            </form>
+          </div>
+        </div>
+      </nav>
+    <a href="{% url 'venue_text'%}"> <button class="btn btn-primary">Download Venue Text File</button></a> 
+    <a href="{% url 'venue_csv'%}"> <button class="btn btn-primary">Download Venue csv File</button></a> 
+    <a href="{% url 'venue_pdf'%}"> <button class="btn btn-primary">Download Venue pdf File</button></a> 
+    
+    {%block content%}
+
+  {%endblock content%}
+    <footer class="footer">Copyright &copy 2022</footer> 
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js" integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-kjU+l4N0Yf4ZOJErLsIcvOU2qSb74wXpOhqTvwVx3OElZRweTnQ6d31fXEoRD1Jy" crossorigin="anonymous"></script>
+</body>
+</html>

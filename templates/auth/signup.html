@@ -1,0 +1,14 @@
+{%extends 'template.html'%}
+
+{%block content%}
+    <center>
+        <form method="post">
+            {%csrf_token%}
+            <h1>Create an new Account</h1>
+            {{form.as_p}}
+           
+            <button type="submit" class="btn btn-success">Signup</button>
+          </form>
+    </center>
+
+{%endblock content%}

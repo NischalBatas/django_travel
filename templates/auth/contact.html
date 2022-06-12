@@ -1,0 +1,27 @@
+
+{%extends 'template.html'%}
+
+{%block content%}
+    <center>
+        <h1>Contant Form</h1>
+        <form action="" method="post">
+            {%csrf_token%}
+                <input type="text" name="subjects" placeholder="subject"><br>
+                <input type="text" name="messagess" placeholder="Messages"><br>
+               
+                <input type="email" name="message_from" placeholder="Message_from"><br>
+        
+                <button type="submit">Submit</button>
+            </form>
+        
+            {%for mess in messages%}
+        
+            {{mess}}
+            {%endfor%}
+            {%for messa in message_from%}
+
+            {{messa}}
+            {%endfor%}
+    </center>
+
+{%endblock content%}

@@ -1,0 +1,12 @@
+{% extends 'template.html'%}
+
+{%block content%}
+   {%for venue in venues%}
+   <ul style="display:flex; margin:10px;">
+        <a style=" margin:10px;"  href="{% url 'show_venues' venue.id%}"><li>{{venue}}</li></a>
+        <a href="{% url 'update_venue' venue.id%}"> <button type="submit" class="btn btn-success">Update</button></a>
+        <a href="{% url 'delete_venue' venue.id%}"><button type="submit" class="btn btn-danger">Delete</button></a>
+
+   </ul>
+   {%endfor%}
+  {%endblock content%}

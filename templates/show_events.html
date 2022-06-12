@@ -1,0 +1,36 @@
+{% extends 'template.html'%}
+
+{%block content%}
+<h2 style="text-align:center">All Events</h2>
+<div class="containers" style="display:flex; flex-wrap: wrap; justify-content: space-evenly;">
+   
+
+  <div class="card m-4" style="width: 22rem;">
+    <div class="card-body">
+    <ul>
+
+      <h5 class="card-title">events Name: {{events.name}}</h5>
+      <li><p class="card-text">Venue: {{events.event_date}}</p></li> 
+      <li><p class="card-text">Venue: {{events.venue}}</p></li> 
+      <li><p class="card-text">Address: {{events.venue.address}}</p></li>
+      <li><p class="card-text">Phone: {{events.venue.phone}}</p></li>
+      <li><p class="card-text">Website: {{events.venue.web}}</p></li>
+      <li><p class="card-text">Description: {{events.description}}</p></li><br>
+      <li><strong>Attendees:</strong></li> 
+      {%for user in events.attendees.all%}
+        <ul>
+        <li style="list-style-type:square"><p class="card-text">{{user}}</p></li>
+    </ul>
+        {%endfor%}      
+    </ul>
+    </div>
+  </div>
+
+</div>
+  
+{%endblock content%}
+
+
+
+
+
