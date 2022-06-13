@@ -4,8 +4,10 @@
 {%for event in page_obj%}
 <ul>
 <a href="{% url 'clickEvent' event.id%}" style=""> <li>{{event}}</li></a>
+{%if user.is_superuser%}
 <a href="{% url 'update_event' event.id%}"><button class="btn btn-success">Update</button> </a>
 <a href="{% url 'delete_event' event.id%}"><button class="btn btn-danger">Delete</button></a>
+{%endif%}
 </ul>
 
 {%endfor%}
