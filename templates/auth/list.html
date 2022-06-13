@@ -3,7 +3,42 @@
 {%block content%}
     <center>
         <h1>User List</h1>
-  
+       
+        <table class="table table-hover table-bordered table-dark">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">First</th>
+                <th scope="col">Last</th>
+                <th scope="col">Email</th>
+                <th scope="col">Address</th>
+                <th scope="col">Phone</th>
+                <th scope="col">Date of birth</th>
+                <th scope="col">Action</th>
+              </tr>
+            </thead>
+            <tbody>
+                {%for lists in list%}
+              <tr>
+                <th scope="row">{{lists.id}}</th>
+                <td>{{lists.first_name}}</td>
+                <td>{{lists.last_name}}</td>
+                <td>{{lists.email}}</td>
+                <td>{{lists.address}}</td>
+                <td>{{lists.phone}}</td>
+                <td>{{lists.dob}}</td>
+                <td>
+                   <a href="{%url 'adduser'%}"><button class="btn btn-success">Add</button></a> 
+                   <a href="{%url 'updateuser' lists.id%}"><button class="btn btn-warning">Update</button></a> 
+                   <a href="{%url 'deleteuser' lists.id%}"><button class="btn btn-danger">Delete</button></a> 
+                </td>
+      
+
+
+              </tr>
+              {%endfor%}
+            </tbody>
+          </table>       
     </center>
 
 {%endblock content%}

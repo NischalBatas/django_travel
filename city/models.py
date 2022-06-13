@@ -1,8 +1,6 @@
-from multiprocessing import managers
-from tkinter import CASCADE
-import webbrowser
+import imp
 from django.db import models
-
+from django.conf import settings
 # Create your models here.
 class Venue(models.Model):
     name=models.CharField("Venue Name",max_length=100,null=True,blank=True)
@@ -11,9 +9,12 @@ class Venue(models.Model):
     phone=models.CharField('Phone',max_length=100,null=True,blank=True)
     web=models.URLField('Website Address')
     email_address=models.EmailField('Email Address')
+    
 
     def __str__(self):
         return self.name
+    
+
 
 class MyClubUser(models.Model):
     first_name=models.CharField(max_length=100,null=True,blank=True)

@@ -1,6 +1,4 @@
 from email import message
-from multiprocessing import context
-from pickle import NONE
 from unicodedata import name
 from django.shortcuts import redirect, render
 from django.http import HttpResponse,HttpResponseRedirect
@@ -233,3 +231,5 @@ def searchs(request):
         return render(request,'searchbar.html',context)
     else:
         return render(request,'searchbar.html')
+
+
